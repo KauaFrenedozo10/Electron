@@ -1,44 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Vendas</title>
+    <style>
+        .historico-container { padding: 20px; font-family: Arial, sans-serif; }
+        .historico-topo { margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; }
+        .historico-topo h1 { margin: 0 0 5px 0; font-size: 24px; color: #333; }
+        .historico-topo p { margin: 0; color: #666; font-size: 14px; }
+        .historico-card { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { background: #f8f9fa; padding: 12px 10px; font-weight: bold; color: #495057; border-bottom: 2px solid #dee2e6; font-size: 14px; }
+        .btn-imprimir { background: #17a2b8; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold; margin-right: 5px; }
+        .btn-imprimir:hover { background: #138496; }
+        /* Novos Botões de Exclusão */
+        .btn-limpar-tudo { background: #dc3545; color: white; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .btn-limpar-tudo:hover { background: #c82333; }
+        .btn-deletar-unico { background: #ffc107; color: #333; border: 1px solid #dc3545; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold; }
+        .btn-deletar-unico:hover { background: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+
 <div class="historico-container">
 
     <div class="historico-topo">
-
         <div>
             <h1>Histórico de Vendas</h1>
-            <p>Todas as vendas registradas no sistema</p>
+            <p>Todas as vendas e saídas de bonificação registradas no sistema</p>
         </div>
-
+        <button class="btn-limpar-tudo" onclick="limparTodoOHistorico()">🗑️ Limpar Todo o Histórico</button>
     </div>
 
     <div class="historico-card">
-
         <table>
-
             <thead>
-
                 <tr>
-
-                    <th>ID Venda</th>
-
+                    <th style="width: 80px;">ID Venda</th>
                     <th>Cliente</th>
-
-                    <th>Itens</th>
-
-                    <th>Bonificação</th>
-
-                    <th>Total Final</th>
-
-                    <th>Data</th>
-
+                    <th>Itens Removidos</th>
+                    <th style="width: 120px;">Desconto</th>
+                    <th style="width: 130px;">Faturamento Final</th>
+                    <th style="width: 180px;">Data / Hora</th>
+                    <th style="width: 150px; text-align: center;">Ações</th> 
                 </tr>
-
             </thead>
-
             <tbody id="historico-tabela-body">
-
             </tbody>
-
         </table>
-
     </div>
 
 </div>
+
+    <script src="./historico.js"></script>
+</body>
+</html>
