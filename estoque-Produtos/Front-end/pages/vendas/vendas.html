@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="vendas-container">
+
+    <div class="vendas-topo">
+
+        <div>
+
+            <h1>Nova Venda</h1>
+
+            <p>Registre vendas e gere PDF automaticamente</p>
+
+        </div>
+
+    </div>
+
+    <div class="vendas-grid">
+
+        <!-- FORMULÁRIO -->
+
+        <div class="venda-card">
+
+            <h2>Dados da Venda</h2>
+
+            <div class="form-group">
+
+                <label>Nome do Cliente</label>
+
+                <input type="text" id="cliente_nome">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Bonificação</label>
+
+                <input
+                    type="number"
+                    id="bonificacao_valor"
+                    value="0"
+                    min="0"
+                    onchange="atualizarPreviewPDF()"
+                >
+
+            </div>
+
+            <div id="lista-produtos-venda">
+
+            </div>
+
+            <button
+                class="btn-adicionar"
+                onclick="adicionarProdutoVenda()"
+            >
+
+                + Adicionar Produto
+
+            </button>
+
+            <div class="totais-venda">
+
+                <div>
+
+                    <span>Total:</span>
+
+                    <strong id="valor_total_venda">
+
+                        R$ 0,00
+
+                    </strong>
+
+                </div>
+
+                <div>
+
+                    <span>Final:</span>
+
+                    <strong id="valor_final_venda">
+
+                        R$ 0,00
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <button
+                class="btn-finalizar"
+                onclick="finalizarVenda()"
+            >
+
+                Finalizar Venda
+
+            </button>
+
+        </div>
+
+        <!-- PREVIEW PDF -->
+
+        <div class="preview-card">
+
+            <div class="preview-topo">
+
+                <h2>Preview do PDF</h2>
+
+            </div>
+
+            <div class="pdf-preview" id="pdf-preview">
+
+            </div>
+
+            <button
+                class="btn-download"
+                onclick="baixarPDFVenda()"
+            >
+
+                Baixar PDF
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
